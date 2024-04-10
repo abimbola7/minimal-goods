@@ -32,7 +32,7 @@ const Hero = () => {
     <div className='' ref={container}>
       <div className='min-h-screen w-full border-red-500 bg-[url(/images/hero.jpeg)] bg-no-repeat bg-cover bg-center' ref={hero}/>
       <Header/>
-      <div className='d h-svh w-full bg-customGray'></div>
+      {/* <div className='d min-h-svh w-full bg-customGray'></div> */}
     </div>
   )
 }

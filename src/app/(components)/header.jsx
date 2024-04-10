@@ -3,7 +3,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header className='w-full bg-customGray sticky top-0 left-0 z-20'>
+    <header className='w-full bg-customGray top-[500px] left-0 z-[100] sticky'>
       <nav className='max-w-[95%] px-2 mx-auto py-6 border-b border-white flex items-center justify-between text-white font-medium relative'>
         <ul className='space-x-3 flex flex-row uppercase text-xs'>
           {
