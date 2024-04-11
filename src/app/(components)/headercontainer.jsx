@@ -38,7 +38,7 @@ const HeaderContainer = () => {
   })
   return (
     <>
-      <div className='h-fit w-full bg-customGray text-[10vw] text-center pt-10 borde text-white leading-none' ref={container}>
+      <div className='h-fit w-full text-[10vw] text-center pt-10 borde text-white leading-none' ref={container}>
           <h1 className='font-semibold !p-0 !m-0 block tracking-tighter leading-none animtext1 overflow-hidden text'>
             Discover
           </h1>

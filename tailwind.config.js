@@ -14,7 +14,8 @@ module.exports = {
       },
       colors : {
         // primary
-        customGray : "#2E2A27"
+        customGray : "#2E2A27",
+        customWhite : "#E8E2DA"
       }
     },
   },

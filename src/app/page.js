@@ -13,6 +13,9 @@ export default function Home() {
     <Hero />
     <HeaderContainer />
     <StickyCircle />
+    <div className="min-h-screen w-full">
+
+    </div>
     </>
   );
 }
