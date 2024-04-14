@@ -20,7 +20,7 @@ const Hero = () => {
         scrub : 1,
         trigger : container.current,
         start : "top top",
-        end : () => hero.current.clientHeight,
+        end : () => "+=" + hero.current.clientHeight,
         
       }
     })
