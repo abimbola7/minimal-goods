@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header className='w-full top-[500px] left-0 z-[100] sticky'>
-      <nav className='max-w-[90%] px-2 mx-auto py-6 border-b border-white flex items-center justify-between text-white font-medium relative'>
+      <nav className='max-w-[95%] px-2 mx-auto py-6 border-b border-white flex items-center justify-between text-white font-medium relative'>
         <ul className='space-x-3 flex flex-row uppercase text-xs'>
           {
             [
