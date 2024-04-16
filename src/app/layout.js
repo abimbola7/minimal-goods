@@ -1,4 +1,5 @@
 import { montserrat } from "./fonts";
+import { LenisProvider } from "./(providers)/lenisprovider";
 import "./globals.css";
 
 export const metadata = {
@@ -9,7 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-customGray ${montserrat.className}`}>{children}</body>
+      <LenisProvider >
+        <body className={`bg-customGray ${montserrat.className}`}>{children}</body>
+      </LenisProvider>
     </html>
   );
 }
