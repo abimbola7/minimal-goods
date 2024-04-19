@@ -15,19 +15,13 @@ const FixedContainer = () => {
   const container = React.useRef()
   const gridContainerRef = React.useRef()
   const timeline = React.useRef()
+  const [ currentColor, setCurrentColor ] = React.useState("#2E2A27");
+  const [ textColor, setTextColor ] = React.useState("#E8E2DA");
+  const [ scrolllDirection, setScrollDirection ] = React.useState("down");
+  const [ type, setType ] = React.useState("");
+
   timeline.current = useGSAP(()=>{
-    // gsap.to(".text", {
-    //   y : "2000px",
-    //   duration : 3,
-    //   scrollTrigger : {
-    //     trigger : ".container1",
-    //     start : "top top",
-    //     scrub : 2,
-    //   }
-    // })
     const sections = gsap.utils.toArray("section")
-    let currentSection = sections[0]
-    console.log(sections)
     gsap.set("section", {
       zIndex : (i, target, targets) => targets.length - i
     })
@@ -41,43 +35,36 @@ const FixedContainer = () => {
         end : `+=${sections.length * 110}%`,
         pin : true,
         scrub : 3,
-        snap : 1 / sections.length
+        onUpdate : (self) => {
+          // console.log(self.direction)
+          // console.log(window.innerHeight)
+          const currentSection = Math.floor(self.scroll() / window.innerHeight)
+          console.log(currentSection)
+          updateBackgroundColor(currentSection, self.scroll())
+        }
       }
     })
     .to(".second", {
       opacity : 0,
       delay : 20,
-      duration : 5,
-      autoAlpha : 0
-    })
+      autoAlpha : 0,
+    })    
     .to(".third", {
       opacity : 0,
       delay : 20,
-      duration : 5,
-      autoAlpha : 0
-    })
+      autoAlpha : 0,
+    })    
     .to(".fourth", {
       opacity : 0,
       delay : 20,
-      duration : 5,
-      autoAlpha : 0
-    })
+      autoAlpha : 0,
+    })    
     .to(".fifth", {
       opacity : 0,
       delay : 20,
-      duration : 5,
-      autoAlpha : 0
-    })
-
-    // ScrollTrigger.create({
-    //   trigger : container.current,
-    //   start : "top top",
-    //   end : `+=${sections.length * 200}%`,
-    //   pin : true,
-    //   scrub : true
-    // })
+      autoAlpha : 0,
+    })    
     
-
     gsap.fromTo(".gridd",{
       yPercent : 100
     }, {
@@ -86,7 +73,7 @@ const FixedContainer = () => {
         trigger : gridContainerRef.current,
         start : "top top",
         end : `+=${sections.length * 200}%`,
-        scrub : 2,
+        scrub : 5,
         pin : false
       }
     })
@@ -94,6 +81,45 @@ const FixedContainer = () => {
   }, {
     
   })
+
+  const updateBackgroundColor = (currentIndex, scrollPosition) => {
+    const newScrollDirection = scrollPosition > gsap.getProperty(container.current, "y") ? "down" : "up";
+    setScrollDirection(newScrollDirection);
+
+    switch (currentIndex) {
+      case 3:
+        setCurrentColor("#2E2A27");
+        break;
+      case 4:
+        setCurrentColor(scrolllDirection === "down" ? "#E8E2DA" : "#2E2A27");
+        break;
+      case 5:
+        setCurrentColor(scrolllDirection === "down" ? "#2E2A27" : "#E8E2DA");
+        break;
+      case 6:
+        setCurrentColor(scrolllDirection === "down" ? "#E8E2DA" : "#2E2A27");
+        break;
+      case 7:
+        setCurrentColor(scrolllDirection === "down" ? "#2E2A27" : "#E8E2DA");
+        break;
+      default:
+        setCurrentColor("#2E2A27");
+    }
+  }
+
+  const changeStyle = () => {
+    gsap.to([document.body, ".second", ".third", ".fourth", ".fifth" ], {
+      backgroundColor : currentColor,
+      color : currentColor === "#2E2A27" ? "#E8E2DA" : "#2E2A27"
+    })
+  }
+
+  React.useEffect(()=>{
+    // document.body.style.backgroundColor = currentColor
+    changeStyle()
+
+  }, [currentColor])
+
   return (
     <>
       <div className='relative mt-[700px] bg-transparent text-[17vw] leading-tight tracking-tighter font-bold mx-auto' ref={container}>

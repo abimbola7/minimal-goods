@@ -42,7 +42,7 @@ const StickyCircle = () => {
   }, [])
   return (
     <div className='h-screen w-full'>
-      <div className='w-full h-full flex items-center justify-center bg-customGray overflow-hidden' ref={container}>
+      <div className='w-full h-full flex items-center justify-center overflow-hidden' ref={container}>
         <div className='w-[30rem] h-[30rem] rounded-full overflow-hidden circle relative flex items-center justify-center'>
             <img className='-z-[1] min-w-[90vw] mx-auto w-[90vw] min-h-screen max-w-none h-screen object-cover object-center relative align-middle inline-block' src='/images/chair.jpg'/>
         </div>

@@ -16,9 +16,9 @@ export const Parallax = ({ children, className, speed = 1, id = "parallax" }) =>
 
   useGSAP(()=>{
     const y = windowWidth * speed * .1;
-    console.log(target.current)
+    // console.log(target.current)
     const targets = gsap.utils.toArray(target.current)
-    console.log(targets)
+    // console.log(targets)
     const setY = gsap.quickSetter(target.current, "y", "px")
 
     timeline.current = gsap.timeline({
@@ -29,7 +29,7 @@ export const Parallax = ({ children, className, speed = 1, id = "parallax" }) =>
         start: "top bottom", // this means the animation will start when the top of the trigger element reaches the bottom of the viewport 
         end: "bottom top", // this means the animation will end when the bottom of the trigger element reaches the top of the viewport
         onUpdate: (e) => {
-          console.log(e.progress * y)
+          // console.log(e.progress * y)
           setY(e.progress * y);
         },
         markers : true

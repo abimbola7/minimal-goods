@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <LenisProvider >
-        <body className={`bg-customGray ${montserrat.className}`}>{children}</body>
+        <body className={`wrap ${montserrat.className}`}>{children}</body>
       </LenisProvider>
     </html>
   );
