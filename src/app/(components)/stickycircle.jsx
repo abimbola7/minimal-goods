@@ -21,7 +21,7 @@ const StickyCircle = () => {
         trigger : container.current,
         start : "top top",
         end : () => `+=${container.current.clientHeight}`,
-        scrub : 1,
+        scrub : 3,
         pin : true,
         pinSpacing : false
       }
@@ -29,11 +29,11 @@ const StickyCircle = () => {
 
     timeline.current
     .to(".circle", {
+      delay : 5,
       borderRadius : 0,
       backgroundSize : "auto",
       width : "100%",
       height : "100%",
-      duration : 20,
     })
     .to("body", {
       backgroundColor : "#E8E2DA !important",

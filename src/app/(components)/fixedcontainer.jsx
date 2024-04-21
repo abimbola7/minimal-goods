@@ -37,7 +37,7 @@ const FixedContainer = () => {
         scrub : 3,
         onUpdate : (self) => {
           // console.log(self.direction)
-          // console.log(window.innerHeight)
+          console.log(window.innerHeight)
           const currentSection = Math.floor(self.scroll() / window.innerHeight)
           console.log(currentSection)
           updateBackgroundColor(currentSection, self.scroll())
@@ -117,13 +117,12 @@ const FixedContainer = () => {
   React.useEffect(()=>{
     // document.body.style.backgroundColor = currentColor
     changeStyle()
-
   }, [currentColor])
 
   return (
     <>
       <div className='relative mt-[700px] bg-transparent text-[17vw] leading-tight tracking-tighter font-bold mx-auto' ref={container}>
-        <div className='absolute w-full min-h-[200vh] gap-y-16 top-0 left-0 grid1 z-[1000] container1 text-xl leading-normal tracking-normal' ref={gridContainerRef}>
+        <div className='absolute w-full min-h-[200vh] space-y-16 top-0 left-0 grid1 z-[1000] container1 text-xl leading-normal tracking-normal' ref={gridContainerRef}>
           <ImageGrid />
           <ImageGrid />
           <ImageGrid />

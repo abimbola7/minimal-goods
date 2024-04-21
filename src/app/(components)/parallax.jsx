@@ -32,7 +32,7 @@ export const Parallax = ({ children, className, speed = 1, id = "parallax" }) =>
           // console.log(e.progress * y)
           setY(e.progress * y);
         },
-        markers : true
+        // markers : true
       },
     });
 
